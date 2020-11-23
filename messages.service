@@ -1,0 +1,14 @@
+[Unit]
+Description="uWSGI server instance for messages App"
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/home/ubuntu/APIs/virtualium-messages-api/
+Environment=FLASK_ENV=test
+ExecStart=/usr/local/bin/uwsgi --ini /home/ubuntu/APIs/virtualium-messages-api/app.ini
+
+[Install]
+WantedBy=multi-user.target
+
